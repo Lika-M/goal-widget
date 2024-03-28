@@ -5,11 +5,9 @@ type CourseProps = PropsWithChildren<{ title: string }>
 const Course: FC<CourseProps> = ({ title, children }) => {
     return (
         <article>
-            <div>
-                <h2>{title}</h2>
-                {children}
-                <button>Delete</button>
-            </div>
+            <h2>{title}</h2>
+            {children}
+            <button>Delete</button>
         </article>
     );
 }
