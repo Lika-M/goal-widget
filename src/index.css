@@ -24,6 +24,13 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
+img {
+  width: 250px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
