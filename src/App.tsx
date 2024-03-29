@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Course from './components/Course.tsx';
+import CourseList from './components/CourseList.tsx'
 import Header from './components/Header.tsx';
 
 import img from './assets/training.jpg';
@@ -28,25 +28,21 @@ function App() {
     });
   }
 
+  function handleDelete(id: number) {
+    setCourses(state => {
+      return state.filter(x => x.id !== id);
+    });
+  }
+
   return (
     <main>
       <Header image={{ src: img, alt: "Course Image" }}>
         <h1>Your Course Goals</h1>
       </Header>
-
       <button onClick={handleAddCourse}>Add New Course</button>
-      <ul>
-        {courses.map(c =>
-          <li key={c.id}>
-            <Course title={c.title}  >
-              <p>{c.description}</p>
-            </Course>
-          </li>)}
-      </ul>
+      <CourseList courses={courses} onDelete={handleDelete}/>
     </main>
-
-
-  )
+  );
 }
 
 export default App

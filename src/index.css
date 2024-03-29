@@ -36,21 +36,35 @@ header h1 {
   color: #f7e596;
 }
 
+button {
+  margin: 20px 0;
+  padding: 8px 12px;
+  background-color: #f9a73b;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
   margin: 10px auto 0 auto;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-around;
+  gap: 3%;
+}
+
+article{
+  padding: .8rem 0;
 }
 
 li {
+  margin: 10px 0;
   flex-basis: 30%;
-  border: 1px solid #dfd9be;
   background-color: #475357;
-  padding: .8rem 0;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -68,10 +82,10 @@ li p {
 }
 
 li button {
-  /* padding: 0 0.5rem; */
   font-size: 1rem;
+  margin: 0;
   background: transparent;
-  border: none;
+  box-shadow: unset;
   color: #909a9a;
   cursor: pointer;
 }
