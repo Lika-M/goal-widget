@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import CourseList from './components/CourseList.tsx'
 import Header from './components/Header.tsx';
+import AddForm from './components/AddForm.tsx';
+import CourseList from './components/CourseList.tsx';
 
 import img from './assets/training.jpg';
 import './App.css';
@@ -16,13 +17,14 @@ function App() {
 
   const [courses, setCourses] = useState<Course[]>([]);
 
-  function handleAddCourse() {
+  function handleAddCourse({ title, summary }: { title: string, summary: string }) {
 
     const newCourse: Course = {
-      title: 'Informatics Practices',
-      description: 'Retrieve and manipulate data using Structured Query Language. Identify the Emerging trends in the fields of Information Technology.',
+      title: title,
+      description: summary,
       id: Math.floor(Math.random() * 100)
     }
+
     setCourses(state => {
       return [...state, newCourse]
     });
@@ -35,12 +37,12 @@ function App() {
   }
 
   return (
-    <main>
+    <main className='fallback'>
       <Header image={{ src: img, alt: "Course Image" }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddCourse}>Add New Course</button>
-      <CourseList courses={courses} onDelete={handleDelete}/>
+      <AddForm addCourse={handleAddCourse} />
+      <CourseList courses={courses} onDelete={handleDelete} />
     </main>
   );
 }

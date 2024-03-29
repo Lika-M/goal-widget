@@ -13,6 +13,11 @@ body {
   background: linear-gradient(#f0f6f8, #e0e1e7);
 }
 
+.fallback {
+  text-align: center;
+  color: #acd1ce;
+}
+
 main {
   width: 90%;
   max-width: 40rem;
@@ -36,16 +41,6 @@ header h1 {
   color: #f7e596;
 }
 
-button {
-  margin: 20px 0;
-  padding: 8px 12px;
-  background-color: #f9a73b;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
 ul {
   list-style: none;
   margin: 10px auto 0 auto;
@@ -56,8 +51,11 @@ ul {
   gap: 3%;
 }
 
-article{
+article {
+  height: 225px;
   padding: .8rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 li {
@@ -79,19 +77,60 @@ li p {
   margin: 3px;
   font-size: 0.75rem;
   color: #dfd9be;
+
+  text-overflow: ellipsis;
 }
 
 li button {
   font-size: 1rem;
   margin: 0;
   background: transparent;
-  box-shadow: unset;
+  border: none;
   color: #909a9a;
   cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 0;
 }
 
 li button:hover {
   color: #f9a73b;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #dfd9be;
+}
+
+input {
+  font: inherit;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #b4b6c4;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #f7e596;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: bold;
+  color: #3a4346;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #f9e175;
 }
 
 
