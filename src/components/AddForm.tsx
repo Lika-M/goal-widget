@@ -1,37 +1,31 @@
-import { FormEvent } from "react";
+import { FormEvent, useRef } from "react";
 
 type AddFormProps = {
     addCourse: ({ title, summary }: { title: string, summary: string }) => void;
 }
 
-type EnteredData = {
-   title: string; 
-   summary: string ;
-}
 export default function AddForm({ addCourse }: AddFormProps) {
+
+    const title = useRef<HTMLInputElement>(null);
+    const summary = useRef<HTMLInputElement>(null);
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const formData = new FormData(event.currentTarget);
-
-        const enteredData: EnteredData = {
-            title: formData.get("title") as string,
-            summary: formData.get("summary") as string
-        };
-        console.log(enteredData);
+        const enteredTitle = title.current!.value;
+        const enteredSummary = summary.current!.value;
 
         event.currentTarget.reset();
-        addCourse(enteredData);
+        addCourse({title: enteredTitle, summary: enteredSummary});
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="title"></label>
-            <input id="title" type="text" name="title" />
+            <input id="title" type="text" ref={title} />
 
             <label htmlFor="summary"></label>
-            <input id="summary" type="text" name="summary" />
+            <input id="summary" type="text" ref={summary} />
 
             <button>Add Course</button>
         </form>
