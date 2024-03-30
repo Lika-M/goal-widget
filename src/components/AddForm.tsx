@@ -21,10 +21,10 @@ export default function AddForm({ addCourse }: AddFormProps) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="title"></label>
+            <label htmlFor="title">YOUR COURSE</label>
             <input id="title" type="text" ref={title} />
 
-            <label htmlFor="summary"></label>
+            <label htmlFor="summary">SHORT SUMMARY</label>
             <input id="summary" type="text" ref={summary} />
 
             <button>Add Course</button>
