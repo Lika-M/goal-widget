@@ -10,7 +10,7 @@ type CorseListProps = {
 }
 
 const CourseList: FC<CorseListProps> = ({ courses, onDelete }) => {
-
+    // props contain only mode
     if (courses.length === 0) {
         return (
             <InfoBox mode="hint">
@@ -19,14 +19,26 @@ const CourseList: FC<CorseListProps> = ({ courses, onDelete }) => {
     }
 
     let warningBox: ReactNode;
+    let rate: 'low' | 'medium' | 'high';
 
+    //props contain mode and severity
     if (courses.length >= 3) {
-        warningBox = <InfoBox mode="warning">You are collecting too much courses!</InfoBox>
+        rate = 'low';
+        if (courses.length >= 4) {
+            rate = 'medium';
+        }
+        if (courses.length >= 5) {
+            rate = 'high';
+        }
+        warningBox = (
+            <InfoBox mode="warning" severity={rate}>
+                You are collecting too much courses.
+            </InfoBox>)
     }
 
     return (
         <>
-        {warningBox}
+            {warningBox}
             <ul>
                 <li>
                     <article>
